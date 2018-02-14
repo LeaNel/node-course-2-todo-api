@@ -134,25 +134,6 @@ app.post('/users/login', (req,res) => {
     });
 });
 
-// app.post('/users/login', (req,res) => {    
-//     User.findOne({email: req.body.email}).then((user) => {
-//         if(!user) {
-//             return res.status(404).send()
-//         }
-//         //validate password
-//         bcrypt.compare(req.body.password, user.password, (err, result) => {
-//             if (result === true) {
-//                 res.send({user});
-//             } else {
-//                 return res.status(404).send();
-//             }
-//         })
-
-//     }).catch((e) => {
-//         res.status(400).send(e);
-//     })
-// })
-
 
 app.get('/users/me', authenticate, (req, res) => {
    res.send(req.user);
